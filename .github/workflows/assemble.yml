@@ -1,12 +1,12 @@
 name: Gradle Assemble
-on: [pull_request]
+on:
+  pull_request:
+  workflow_dispatch:
 
 jobs:
   assemble:
     if: github.repository == 'opensearch-project/OpenSearch'
     runs-on: ${{ matrix.os }}
-    permissions:
-      pull-requests: write # this allows to show table and charts in PRs
     strategy:
       matrix:
         java: [ 11, 17, 21 ]
